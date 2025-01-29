@@ -5,38 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Color Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="./svg/wink.svg" type="image/svg">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <main class="generator">
-        <section class="generator__container">
+    <section class="generator">
+        <div class="container">
             <h1 class="generator__title">Random Color Generator</h1>
             <div class="generator__card-wrapper">
                 <div class="generator__card">
                     <div class="generator__color-box" id="color-box"></div>
-                    <div class="generator__color-type">
-                        <label class="generator__type-label">
-                            <input class="generator__radio-btn" type="radio" name="color-format" value="hex" checked> HEX
-                        </label>
-                        <label class="generator__type-label">
-                            <input class="generator__radio-btn" type="radio" name="color-format" value="rgb"> RGB
-                        </label>
-                        <label class="generator__type-label">
-                            <input class="generator__radio-btn" type="radio" name="color-format" value="rgba"> RGBA
-                        </label>
-                    </div>
-                    <div class="generator__btns-wrapper">
-                        <button class="generator__btn" id="generate-btn" type="button">Generate</button>
-                        <div class="generator__copy-wrapper">
-                            <p class="generator__color-text" id="color-text">#000000</p>
-                            <button class="generator__copy-btn" id="copy-btn" type="button" title="For Now it's Disabled" disabled>Copy</button>
+
+                        <fieldset class="generator__color-type">
+                            <div class="generator__radio-wrapper">
+                                <input class="generator__radio-btn visually__hidden" type="radio" name="color-format" id="color-hex-format" value="hex" checked>
+                                <label class="generator__type-label" for="color-hex-format">
+                                <span class="generate__custom-radio"></span>
+                                HEX
+                            </label>
                         </div>
+
+                            <div class="generator__radio-wrapper">
+                                <input class="generator__radio-btn visually__hidden" type="radio" name="color-format" id="color-rgb-format" value="rgb">
+                                <label class="generator__type-label" for="color-rgb-format">
+                                <span class="generate__custom-radio"></span> 
+                                RGB
+                            </label>
+                        </div>
+
+                            <div class="generator__radio-wrapper">
+                                <input class="generator__radio-btn visually__hidden" type="radio" name="color-format" id="color-rgba-format" value="rgba">
+                                <label class="generator__type-label" for="color-rgba-format">
+                                <span class="generate__custom-radio"></span>
+                                RGBA
+                            </label>
+                        </div>
+                        </fieldset>
+
+                        <div class="generator__btns-wrapper">
+                            <button class="generator__btn" id="generate-btn" type="button">Generate</button>
+                            <div class="generator__copy-wrapper">
+                                <input class="generator__color-text" id="color-text" value="#000000">
+                                <button class="generator__copy-btn" id="copy-btn" onclick="copyColor()" type="button">
+                                <svg class="generator__copy-icon" width="24" height="24">
+                                    <use href="./svg/icons.svg#icon-copy"></use>
+                                </svg>
+                                <span class="generator__copy-hovered-clue" id="copy-clue">Copy</span>
+                                <span class="generator__copy-clicked-clue" id="copied-clue">Copied!</span>
+                            </button>
+                            </div>
+                        </div>
+                        <p class="generator__description">For more projects, check my <a href="https://github.com/sh1xzyy/Random-Color-Generator" target="_blank">Bio // Github sh1xzyy \\</a></p>
                     </div>
-                    <p class="generator__description">For more projects, check my <a href="https://github.com/sh1xzyy/Random-Color-Generator" target="_blank">Bio</a></p>
                 </div>
             </div>
         </section>
-    </main>
     <script src="./js/script.js"></script>
 </body>
 </html>

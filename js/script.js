@@ -22,17 +22,22 @@ document.getElementById('generate-btn').addEventListener('click', () => {
 function getRandomHexColor(){
     const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
     colorBox.style.backgroundColor = randomColor;
-    colorText.textContent = randomColor;
+    colorText.value = randomColor;
 }
 
 function getRandomRgbColor(){
     const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     colorBox.style.backgroundColor = randomColor;
-    colorText.textContent = randomColor;
+    colorText.value = randomColor;
 }
 
 function getRandomRgbaColor(){
     const randomColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.random().toFixed(2)})`;
     colorBox.style.backgroundColor = randomColor;
-    colorText.textContent = randomColor;
+    colorText.value = randomColor;
+}
+
+function copyColor(){
+    colorText.select()
+    navigator.clipboard.writeText(colorText.value)
 }
